@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 1rem;
+
+    /* Pastel Y2K palette (OKLCH: L C H — no oklch() wrapper) */
+    /* #f1e5f6 fairy pink */
+    --background: 0.939 0.03 308;
+    /* #2d1f4a deep purple-navy for text */
+    --foreground: 0.27 0.09 295;
+    /* #ffffff/80 glassmorphism card */
+    --card: 1 0 0;
+    --card-foreground: 0.27 0.09 295;
+    --popover: 1 0 0;
+    --popover-foreground: 0.27 0.09 295;
+    /* #7181c8 pastel purple */
+    --primary: 0.58 0.13 279;
+    --primary-foreground: 1 0 0;
+    /* #ababdc pastel purple light */
+    --secondary: 0.74 0.09 279;
+    --secondary-foreground: 0.27 0.09 295;
+    /* #f1cfed candy pink */
+    --muted: 0.89 0.06 320;
+    --muted-foreground: 0.5 0.07 295;
+    /* #b7d3f4 dream sky */
+    --accent: 0.85 0.07 222;
+    --accent-foreground: 0.27 0.09 295;
+    /* soft rose for destructive */
+    --destructive: 0.65 0.2 15;
+    --destructive-foreground: 1 0 0;
+    /* border & input */
+    --border: 0.88 0.05 295;
+    --input: 0.88 0.05 295;
+    --ring: 0.58 0.13 279;
+
+    /* chart colors */
+    --chart-1: 0.58 0.13 279;
+    --chart-2: 0.74 0.09 279;
+    --chart-3: 0.85 0.07 222;
+    --chart-4: 0.89 0.06 320;
+    --chart-5: 0.65 0.2 15;
+
+    /* sidebar */
+    --sidebar: 0.96 0.02 308;
+    --sidebar-foreground: 0.27 0.09 295;
+    --sidebar-primary: 0.58 0.13 279;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.89 0.06 320;
+    --sidebar-accent-foreground: 0.27 0.09 295;
+    --sidebar-border: 0.88 0.05 295;
+    --sidebar-ring: 0.58 0.13 279;
+
+    /* custom Y2K tokens */
+    --pastel-purple: #7181c8;
+    --pastel-purple-light: #ababdc;
+    --dream-sky: #b7d3f4;
+    --candy-pink: #f1cfed;
+    --fairy-pink: #f1e5f6;
+    --deep-purple: #3a3060;
+
+    /* glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(171, 171, 220, 0.35);
+    --glass-shadow: 0 8px 32px rgba(113, 129, 200, 0.18), 0 2px 8px rgba(113, 129, 200, 0.1);
+  }
+
+  * {
+    @apply border-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply text-foreground;
+    font-family: 'Nunito', system-ui, sans-serif;
+    /* Richer multi-stop dreamy gradient — more depth and saturation */
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(200,180,224,0.55) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 0%, rgba(183,211,244,0.5) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 90%, rgba(241,207,237,0.6) 0%, transparent 55%),
+      radial-gradient(ellipse at 5% 80%, rgba(171,171,220,0.35) 0%, transparent 45%),
+      linear-gradient(160deg, #f1e5f6 0%, #ede0f8 25%, #ddd4f5 50%, #c9daf7 75%, #c8ddf8 100%);
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* Safe area support for iPhone notch/home bar */
+  body {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(241,229,246,0.65) 100%);
+    border: 1px solid rgba(171,171,220,0.4);
+    box-shadow: 0 8px 32px rgba(113,129,200,0.2), 0 2px 8px rgba(113,129,200,0.1), inset 0 1px 0 rgba(255,255,255,0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .font-cinzel {
+    font-family: 'Cinzel', Georgia, serif;
+  }
+
+  .font-playfair {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* Priority badge styles */
+  .priority-high {
+    background: rgba(251, 207, 232, 0.8);
+    color: #9d174d;
+    border: 1px solid rgba(251, 182, 206, 0.6);
+  }
+
+  .priority-medium {
+    background: rgba(254, 240, 199, 0.8);
+    color: #92400e;
+    border: 1px solid rgba(253, 230, 138, 0.6);
+  }
+
+  .priority-low {
+    background: rgba(187, 247, 208, 0.8);
+    color: #065f46;
+    border: 1px solid rgba(134, 239, 172, 0.6);
+  }
+
+  /* Scrollable timetable list */
+  .timetable-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--pastel-purple-light) transparent;
+  }
+
+  .timetable-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .timetable-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .timetable-scroll::-webkit-scrollbar-thumb {
+    background: var(--pastel-purple-light);
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Y2K sparkle animation */
+  @keyframes sparkle-spin {
+    0%   { transform: rotate(0deg) scale(1); }
+    25%  { transform: rotate(90deg) scale(1.12); }
+    50%  { transform: rotate(180deg) scale(1); }
+    75%  { transform: rotate(270deg) scale(1.12); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    30% { transform: translateY(-10px) rotate(4deg); }
+    65% { transform: translateY(-5px) rotate(-2.5deg); }
+  }
+
+  @keyframes shimmer-in {
+    from { opacity: 0; transform: translateY(14px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50%       { opacity: 1;    transform: scale(1.1); }
+  }
+
+  @keyframes glow-breathe {
+    0%, 100% { filter: drop-shadow(0 0 6px rgba(113,129,200,0.4)); }
+    50%       { filter: drop-shadow(0 0 14px rgba(113,129,200,0.75)); }
+  }
+
+  .animate-sparkle {
+    animation: sparkle-spin 9s linear infinite;
+  }
+
+  .animate-float {
+    animation: float-gentle 7s ease-in-out infinite;
+  }
+
+  .animate-shimmer-in {
+    animation: shimmer-in 0.45s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2.5s ease-in-out infinite;
+  }
+
+  .animate-glow-breathe {
+    animation: glow-breathe 3s ease-in-out infinite;
+  }
+}

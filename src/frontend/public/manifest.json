@@ -1,0 +1,25 @@
+{
+  "name": "hibiscus",
+  "short_name": "hibiscus",
+  "description": "hibiscus — your pastel Y2K timetable planner. Schedule your day in style.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#ababdc",
+  "background_color": "#f1e5f6",
+  "categories": ["productivity", "lifestyle"],
+  "icons": [
+    {
+      "src": "/assets/generated/hibiscus-icon.dim_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/generated/hibiscus-icon.dim_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
